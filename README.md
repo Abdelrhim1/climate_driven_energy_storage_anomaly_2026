@@ -1,26 +1,119 @@
-# German Gas Storage Prediction - Agentic Documentation
+# German Gas Storage Forecasting & Anomaly Detection
 
-This project focuses on modeling German gas storage drawdown for Q1 2026 using a hybrid data-driven approach. It was developed entirely through an **Agentic Workflow**, leveraging autonomous reasoning, iterative execution, and multi-modal verification.
+## Overview
 
-## Agentic Workflow Overview
+This project models German natural gas storage drawdown for **Q1 2026** using a hybrid machine learning approach that integrates **climatic indicators** and **energy market variables**.
 
-The development process followed a strictly structured agentic loop:
+The system predicts expected storage levels and identifies abnormal deviations through residual analysis.
 
-1.  **Autonomous Planning**: The system analyzed the user's high-level objectives (e.g., "predict storage levels") and derived a technical roadmap, including data sourcing from ERA5-Land and industrial weighting strategies.
-2.  **Iterative Execution**: Implementation was carried out in a specialized Data Science environment (`ds_env`). The system handled complex data processing (unzipping, GRIB extraction) and model development autonomously.
-3.  **Adaptive Debugging**: When faced with environmental blockers—specifically persistent TensorFlow DLL loading issues on Windows—the agent autonomously pivoted from a planned LSTM-Hybrid to a robust **Lagged XGBoost model**, ensuring project continuity.
-4.  **Browser-Driven Verification**: A dedicated browser subagent was used to interactively verify the output of the Plotly dashboard across multiple styling iterations, ensuring high-contrast legibility and correct anomaly rendering.
+The project demonstrates how weather-driven demand signals and market dynamics influence storage behavior.
 
-## Mission Log: Collaborative Milestones
+---
 
-| Milestone | Action Taken | Result |
-| :--- | :--- | :--- |
-| **Environmental Lock-in** | Configured `ds_env` with explicit Conda paths to resolve Python entry-point conflicts. | Stable execution environment for data libraries. |
-| **Climate GRIB Pipeline** | Extracted 2m Temperature and Precipitation from ERA5 archives; handled coordinate unalignment. | Robust feature set for heating demand modeling. |
-| **Industrial HDD Weighting** | Calculated Heating Degree Days weighted by the density of industrial clusters (NRW, SE Germany). | Enhanced predictive power for industrial gas demand. |
-| **The XGBoost Pivot** | Detected TF DLL failures; autonomously replaced LSTM components with temporal lags in XGBoost. | Maintained 0.0045 RMSE without environment re-install. |
-| **Dashboard Aesthetics** | Iterated through Dark and Light themes using browser-subagent feedback. | Finalized `energy_dashboard_final.html` with perfect legibility. |
+## Key Features
 
-## Short Communication
+* Climate-aware gas storage forecasting
+* Integration of ERA5-Land climate data
+* Industrial Heating Degree Day (HDD) weighting
+* Lagged feature modeling
+* XGBoost regression model
+* Residual-based anomaly detection
+* Interactive Plotly dashboard
+* Automated LaTeX reporting
 
-For a detailed technical summary of the methodology, results (including the February 2026 Crisis Delta), and feature importance, please refer to the [project report](report.pdf) (generated via LaTeX).
+---
+
+## Data Sources
+
+### Climate Data
+
+* ERA5-Land reanalysis dataset
+* 2m temperature
+* precipitation anomalies
+
+### Energy Market Data
+
+* Natural gas prices (EUR/MWh)
+* historical storage levels
+
+---
+
+## Feature Engineering
+
+The model uses several engineered features to capture energy demand dynamics:
+
+* Temperature anomaly
+* Heating Degree Days (HDD)
+* Industrial HDD weighting
+* Precipitation anomaly
+* Gas price signals
+* Lagged temporal indicators
+
+These variables allow the model to capture both **weather-driven consumption** and **market-driven storage strategies**.
+
+---
+
+## Model
+
+Due to TensorFlow environment limitations, the project pivoted from an LSTM architecture to a robust **lagged feature XGBoost regression model**.
+
+The final model achieved:
+
+RMSE ≈ 0.0045
+
+This approach maintains strong predictive performance while simplifying deployment.
+
+---
+
+## Anomaly Detection
+
+Anomalies are detected using statistical residual monitoring.
+
+Steps:
+
+1. Predict expected storage levels
+2. Compute prediction residuals
+3. Apply a **5σ statistical threshold**
+4. Flag abnormal deviations
+
+This allows early detection of unusual storage behavior.
+
+---
+
+## Dashboard
+
+The interactive dashboard includes:
+
+* Actual vs predicted storage levels
+* Residual monitoring
+* anomaly detection markers
+* feature importance visualization
+
+---
+
+## Project Structure
+
+src/ – modeling and dashboard scripts
+models/ – trained XGBoost model
+data/ – climate and storage datasets
+reports/ – LaTeX report and outputs
+
+---
+
+## Technologies
+
+Python
+XGBoost
+Pandas
+Plotly
+Scikit-learn
+ERA5 climate data
+LaTeX reporting
+
+---
+
+## Documentation
+
+A full technical description of the methodology, validation results, and feature importance analysis is available in the project report:
+
+report.pdf
