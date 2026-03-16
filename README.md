@@ -1,8 +1,8 @@
-# German Gas Storage Forecasting & Anomaly Detection
+# German Gas Storage Forecasting and Anomaly Detection
 
 ## Overview
 
-This project models German natural gas storage drawdown for **Q1 2026** using a hybrid machine learning approach that integrates **climatic indicators** and **energy market variables**.
+This project models German natural gas storage drawdown for Q1 2026 using a hybrid machine-learning approach that integrates climatic indicators and energy market variables.
 
 The system predicts expected storage levels and identifies abnormal deviations through residual analysis.
 
@@ -49,13 +49,13 @@ The model uses several engineered features to capture energy demand dynamics:
 * Gas price signals
 * Lagged temporal indicators
 
-These variables allow the model to capture both **weather-driven consumption** and **market-driven storage strategies**.
+These variables allow the model to capture both weather-driven consumption and market-driven storage strategies.
 
 ---
 
 ## Model
 
-Due to TensorFlow environment limitations, the project pivoted from an LSTM architecture to a robust **lagged feature XGBoost regression model**.
+Due to TensorFlow environment limitations, the project pivoted from an LSTM architecture to a robust lagged feature XGBoost regression model.
 
 The final model achieved:
 
@@ -73,7 +73,7 @@ Steps:
 
 1. Predict expected storage levels
 2. Compute prediction residuals
-3. Apply a **5σ statistical threshold**
+3. Apply a 5σ statistical threshold
 4. Flag abnormal deviations
 
 This allows early detection of unusual storage behavior.
@@ -86,8 +86,8 @@ The interactive dashboard includes:
 
 * Actual vs predicted storage levels
 * Residual monitoring
-* anomaly detection markers
-* feature importance visualization
+* Anomaly detection markers
+* Feature importance visualization
 
 ---
 
@@ -111,6 +111,14 @@ ERA5 climate data
 LaTeX reporting
 
 ---
+
+## Applications
+
+Energy storage monitoring
+
+Energy market analytics
+
+Climate-driven demand forecasting
 
 ## Documentation
 
