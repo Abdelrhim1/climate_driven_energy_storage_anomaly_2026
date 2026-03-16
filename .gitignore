@@ -1,1 +1,54 @@
-.ipynb_checkpoints/
+# Professional .gitignore for Energy Data Modeling Project
+
+# Datasets (Large GRIB/NetCDF files)
+*.grib
+*.nc
+*.idx
+german_gas_q1_2026.csv
+model_results_q1_2026.csv
+
+# Python/Environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Modeling Artifacts (Local only, better for cloud storage/releases)
+feature_importance.json
+checksum.txt
+export_log*.txt
+export/predict_log.txt
+German_Energy_Anomaly_Model_v1.zip
+
+# Agent Specific / Temp
+.gemini/
+.agent/
+.agents/
+/tmp/
+out.log
+export_staging/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# LaTeX Aux
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.gz
+*.fdb_latexmk
+*.fls
