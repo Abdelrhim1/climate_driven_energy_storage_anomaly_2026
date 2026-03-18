@@ -1,0 +1,40 @@
+Analysis of German Gas Storage
+Drawdown and Supply Risk Assessment (Q1 2026)
+Abdelrhim Eltijani BSc (hons), MSc, PhD
+Energy Data Modeling Project
+March 2026
+1. Introduction
+This report presents a hybrid machine-learning framework for modeling German natural gas storage dynamics during the Q1 2026 heating season. The model integrates ERA5-Land climate anomalies, industrial demand indicators, and market variables to forecast storage drawdown and detect abnormal deviations. Results show strong predictive accuracy (RMSE ≈ 0.0045) and identify a significant deviation in February 2026 ("Crisis Delta" ≈ 0.1789%). Feature importance analysis highlights gas price volatility and temperature-driven demand as key drivers of storage behavior.
+Monitoring natural gas storage levels is critical for energy security and market stability in Germany, particularly during winter periods of high demand. This project develops a data-driven predictive model to estimate expected storage trajectories and detect deviations from normal drawdown patterns. These deviations, referred to as anomalies, may indicate supply stress, demand shocks, or market dislocations.
+2. Methodology
+The modeling pipeline integrates three primary components:
+2.1	Climate Data
+Climate variables are derived from the ERA5-Land reanalysis dataset, including: 2m temperature and total precipitation. From these, demand-related indicators such as temperature anomalies and Heating Degree Days (HDD) are constructed.
+2.2	Industrial Demand Modeling
+To better capture industrial gas consumption, HDD is weighted by the density of industrial activity in key regions, including North Rhine-Westphalia (NRW) and Southern Germany. This produces an industrial HDD indicator, enhancing sensitivity to economic demand.
+2.3	Model Architecture
+The predictive model is based on a lagged feature XGBoost regression framework that incorporates lagged storage levels, climate indicators, and gas price signals. This approach captures both temporal dependencies and nonlinear relationships between variables.
+3. Results
+The model demonstrates strong predictive performance across the evaluation period with the following key metrics: 
+•	RMSE: 0.0045
+•	February 2026 Crisis Delta: 0.1789%
+•	Maximum anomaly magnitude: 5.2σ
+An anomaly was detected on January 4, 2026, where residuals exceeded the 5σ threshold. The model successfully captures both Climate-driven consumption patterns and Market-driven storage adjustments.
+4. Anomaly Detection Framework
+Anomalies are identified using statistical analysis of prediction residuals:
+1.	Forecast expected storage levels
+2.	Compute residuals (actual − predicted)
+3.	Apply a 5σ threshold
+4.	Flag significant deviations
+This framework enables early detection of abnormal storage behavior.
+5. Feature Importance
+Feature importance analysis indicates that:
+•	Gas price volatility is the dominant driver of residual variation
+•	Temperature anomalies strongly influence demand
+•	Industrial HDD contributes significantly to predictive accuracy
+These results highlight the combined impact of market dynamics and climate-driven demand on storage behavior.
+6. Conclusion
+This study demonstrates that integrating climate data, industrial demand indicators, and market variables provides a robust framework for modeling gas storage dynamics. The proposed approach achieves high predictive accuracy while enabling reliable anomaly detection. The results confirm that both weather conditions and market signals are critical in understanding storage drawdown behavior. This framework can support:
+•	Energy market monitoring
+•	Risk assessment
+•	Demand forecasting
