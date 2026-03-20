@@ -87,12 +87,13 @@ class EnergyPredictor:
         }
 
 if __name__ == "__main__":
-    # Example Demonstration
-    import sys
-    # Handle relative imports/paths for standalone execution
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    m_path = os.path.join(base_dir, "..", "model_xgb_2026.json")
-    meta_path = os.path.join(base_dir, "..", "metadata.json")
+    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+    RESULTS = os.path.join(BASE_DIR, 'data', 'model_results_q1_2026.csv')
+    IMPORTANCE = os.path.join(BASE_DIR, 'data', 'feature_importance.json')
+    OUTPUT = os.path.join(BASE_DIR, 'docs', 'validation_dashboard.html')
+
+    create_dashboard(RESULTS, IMPORTANCE, OUTPUT)
     
     predictor = EnergyPredictor(model_path=m_path, metadata_path=meta_path)
     
