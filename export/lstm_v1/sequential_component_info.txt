@@ -1,0 +1,2 @@
+Note: LSTM component replaced by Lagged XGBoost for Q1 2026 targets.
+Reference Metrics: MAE=0.0024951812865496898, R2=0.9999997905868073
