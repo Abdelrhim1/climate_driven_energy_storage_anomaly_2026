@@ -1,0 +1,25 @@
+{
+    "model_type": "Hybrid Lagged XGBoost",
+    "training_metrics": {
+        "MAE": 0.0024951812865496898,
+        "R2": 0.9999997905868073,
+        "RMSE": 0.004488017764034744
+    },
+    "feature_scaling": {
+        "method": "Identity (None)",
+        "description": "Raw feature values used due to XGBoost's scale-invariance."
+    },
+    "lag_parameters": {
+        "lags": [
+            1,
+            2
+        ],
+        "features_lagged": [
+            "Weighted_HDD",
+            "Temp_Anomaly",
+            "Precip_Anomaly",
+            "Gas_Price_EUR_MWh"
+        ]
+    },
+    "timestamp": "2026-03-22T20:29:47.029196"
+}
